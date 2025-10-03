@@ -1,0 +1,38 @@
+* {
+    inset: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1.5rem;
+    background: black;
+    color: whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    overflow: hidden;
+
+    font-family: sans-serif;
+    gap: 1rem;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+  .shadow-image {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px; /* Optional: rounds the corners */
+    max-width: 100%;
+    height: auto;
+  }

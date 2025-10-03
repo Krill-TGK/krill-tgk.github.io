@@ -1,0 +1,65 @@
+* {
+    inset: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: #ffe81f; /* Star Wars yellow */
+}
+
+.star-wars {
+    position: relative;
+    height: 100vh;
+    perspective: 400px;
+    overflow: hidden;
+}
+
+.crawl {
+    position: absolute;
+    bottom: -100vh;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%) rotateX(25deg);
+    transform-origin: bottom center;
+    text-align: justify;
+    font-size: 4rem;
+    line-height: 1.5;
+    animation: crawl 600s linear;
+}
+
+@keyframes crawl {
+    0% {
+        top: 100vh;
+    }
+    100% {
+        top: -10000vh;
+    }
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* Optional: Add fade at bottom and top */
+.fade {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, black 0%, transparent 100%);
+    bottom: 0;
+    z-index: 2;
+}
+
+.fade.top {
+    top: 0;
+    background: linear-gradient(to bottom, black 0%, transparent 100%);
+}

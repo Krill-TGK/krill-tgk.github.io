@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello JavaScript</title>
+  </head>
+  <body>
+    <script>
+      let basket = [
+        "apple",  // index 0
+        "banana", // index 1
+        "coconut" // index 2        
+      ]
+
+      // arrays are a list of elements
+
+      // arrays are "indexable" meaning they can be accessed using an offset called an "index"
+      
+      // it is useful to think of indices as offsets, so the first element of an array is always at the zero-th index (no offset)
+      
+      // to access an item at a particular index, use square brackets e.g. basket[0]
+
+      // arrays have many properties, one of which is its "length" which can be accessed via basket.length
+
+
+
+      // print each element of the array
+
+      let i = 0;
+      while (i < basket.length) {
+        let fruit = basket[i]
+        console.log(fruit)
+        i = i + 1
+      }
+      
+
+      for (let fruit of basket)
+        console.log(fruit)
+
+
+    </script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title> fish-tac toes</title>
   </head>
   <body>
 
@@ -11,6 +11,10 @@
         margin: 0;
         padding: 0;
       }
+ 
+      body {
+        overflow: hidden;
+      }
 
       .container {
         width : 100dvw;
@@ -19,6 +23,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background:black;
       }
 
       .board {
@@ -26,14 +31,14 @@
         width : fit-content;
         height: fit-content;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        border: black 2px solid;
-        box-shadow: black 8px 8px;
+        border: white 2px solid;
+        box-shadow: whitesmoke 8px 8px;
       }
 
       .board>a {
         width : 100px;
         height: 100px;
-        border: black 1px solid;
+        border: white 1px solid;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -45,13 +50,13 @@
       }
 
       .x {
-        color: blue;
+        color:dodgerblue;
         cursor: default;
         font-weight: bold;
       }
 
       .o {
-        color: red;
+        color: grey;
         cursor: default;
         font-weight: bold;
       }
@@ -59,17 +64,84 @@
       h1 {
         font-family: sans-serif;
         font-size: 67px;
+        color: white
       }
 
       #info {
         font-family: sans-serif;
         font-size: 18px;
         margin-top: 12px;
+        color: white
       }
+
+      #whale {
+        position: absolute;
+        transform-origin: center;
+        translate: -50% -50%;
+        top :  50dvh;
+        left: -50dvw;
+        width : fit-content;
+        height: fit-content;
+        font-size: 400px;
+      }
+
+      .whale {
+        animation: slide-stop 6s;
+      }
+
+      .wave {
+        animation: slide reverse 3.5s;
+      }
+
+      #wave {
+        position: absolute;
+        transform-origin: center;
+        translate: -50% -50%;
+        top :  50dvh;
+        left: -50dvw;
+        width : fit-content;
+        height: fit-content;
+        font-size: 1000px;
+      }
+
+      @keyframes slide {
+        0% {
+          left: -50dvw;
+        }
+
+        100% {
+          left: 100dvw;
+        }
+      }
+
+      @keyframes slide-stop {
+        0% {
+          left: -50dvw;
+        }
+
+        45% {
+          left: 50dvw;
+        }
+
+        55% {
+          left: 50dvw;
+        }
+
+        100% {
+          left: 150dvw;
+        }
+      }
+
+       audio {
+        position: absolute;
+        left: 50dvw;
+        margin-top: 18px;
+        translate: -50%;
+       }
     </style>
 
     <div class="container">
-      <h1>Tic-Tac-Toe</h1>
+      <h1>Fish - Tacs - Toes</h1>
       <div class="board">
         <a id="a1"></a>
         <a id="a2"></a>
@@ -91,8 +163,12 @@
         <a id="d3"></a> 
         <a id="d4"></a>
       </div>
-      <span id="info"><span class="x">Player 1</span>, click on an empty cell to place an <span class="x">X</span></span>
+      <span id="info"><span class="x"> fishies </span>, click on an empty cell to place an <span class="x">X</span></span>
+      <audio src="./Underwater Theme II.mp3" controls></audio>
+      <div id="whale">🐋</div>
+      <div id="wave"  class="wave">🌊</div>
     </div>
+
 
     <script>
       const info = document.getElementById("info")
@@ -116,6 +192,9 @@
       const d2 = document.getElementById("d2")
       const d3 = document.getElementById("d3")
       const d4 = document.getElementById("d4")
+
+      const whale = document.getElementById("whale")
+
       let turn = 0
 
       function onClick(e) {
@@ -127,12 +206,12 @@
           e.target.innerHTML = "O"
           e.target.classList.remove("x")
           e.target.classList.add   ("o")
-          info.innerHTML = "<span class='x'>Player 1</span>, click on an empty cell to place an <span class='x'>X</span>"
+          info.innerHTML = "<span class='x'>Fishies</span>, click on an empty cell to place an <span class='x'>X</span>"
         } else {
           e.target.innerHTML = "X"
           e.target.classList.remove("o")
           e.target.classList.add   ("x")
-          info.innerHTML = "<span class='o'>Player 2</span>, click on an empty cell to place an <span class='o'>O</span>"
+          info.innerHTML = "<span class='o'>Sharkies</span>, click on an empty cell to place an <span class='o'>O</span>"
         }
 
         turn += 1
@@ -151,6 +230,12 @@
         // check diagnols
         check(a1, b2, c3, d4)
         check(a4, b3, c2, d1)
+
+        if (turn > 15) {
+          info.innerHTML = "A Whale?!?!. RUNNNN!!!!!."
+          whale.classList.add("whale")
+          turn = -1
+        }
        
       }
 
@@ -162,17 +247,17 @@
           d.innerText === c.innerText
         ) {
           if (turn & 1) {
-            info.innerHTML = "<span class='x'>Player 1</span> Wins!"
+            info.innerHTML = "<span class='x'>The Fishies Escaped!</span>"
             a.innerHTML = "🐟"
             b.innerHTML = "🐟"
             c.innerHTML = "🐟"
             d.innerHTML = "🐟"
           } else {
-            info.innerHTML = "<span class='o'>Player 2</span> Wins!"
-            a.innerHTML = "🐛"
-            b.innerHTML = "🐛"
-            c.innerHTML = "🐛"
-            d.innerHTML = "🐛"
+            info.innerHTML = "<span class='o'> The Sharkies Ate Their Fill!</span>"
+            a.innerHTML = "🦈"
+            b.innerHTML = "🦈"
+            c.innerHTML = "🦈"
+            d.innerHTML = "🦈"
           }
           turn = -1
         }

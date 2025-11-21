@@ -22,3 +22,18 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.page {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    width: fit-content;
+    height: fit-content;
+    place-items: center;
+    place-content: center;
+    gap: 1rem;
+}
+
+.page>* {
+    overflow: hidden;
+    border-radius: 1.5rem;
+}

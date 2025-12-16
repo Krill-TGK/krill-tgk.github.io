@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head> 
+        <title> 
+           Nonsense
+        </title>
+    </head>
+     <body>
+        <style>
+          * {
+
+            color: Black;        
+
+          } 
+
+          body {
+            background-image: url("./nonsense\ christmas.webp");
+            background-size: 100%;
+            background-repeat: no-repeat;
+                            display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100dvh;
+                overflow: hidden;
+          }
+        </style>
+    
+    <body>
+<div style="grid-column: span 3; width: 10%; overflow: hidden; height: 150px;"></div>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2FRnf9qhLbvw8fu4IBXx78?utm_source=generator" width="20%" height="130" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <h1>Dear Santa, Since I've been good...</h1>
+     <h2> This year I wish for</h2>
+     <ol id="todo"></ol>
+    <input type="text" id="description">
+    <button id="add">Add Item</button>
+
+    <script>
+      const todo        = document.getElementById("todo")
+      const add         = document.getElementById("add" )
+      const description = document.getElementById("description")
+
+      function newItem(desc) {
+        const li   = document.createElement("li"   )
+        const cb   = document.createElement("input")
+        const text = document.createElement("span" )
+        const del  = document.createElement("button")
+
+        function deleteItem() {
+          todo.removeChild(li)
+        }
+
+        cb.onclick = deleteItem
+        
+        cb.type = "checkbox"
+        del.innerText = "🗑️"
+        text.innerText = desc
+        li.appendChild(cb  )
+        li.appendChild(text)
+        li.appendChild(del )
+        return li
+      }
+
+      function addItem() {
+        const text = description.value
+        description.value = ""
+        todo.appendChild(newItem(text))
+      }
+
+      add.onclick = addItem
+
+    </script>
+ <img width=300px src="./fireball.gif" alt="Elsa died">
+</body>
+</html>

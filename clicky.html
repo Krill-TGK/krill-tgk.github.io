@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clicks</title>
+  </head>
+  <body>
+    <script>
+      // body height is 0 by default
+      document.body.style.height = "100dvh"
+
+      let clicks = 0
+
+      function onClick() {
+        clicks = clicks + 1
+        console.log("Mouse was clicked", clicks, "times!")
+      }
+
+      document.body.onclick = onClick
+    </script>
+  </body>
+</html>

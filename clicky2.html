@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>      <link rel="stylesheet" href="./index.css"></link>
+<title>click a cicly</title>
+<style>
+
+
+    .circle {
+        position: absolute; 
+        width: 67px;
+        height: 67px;
+        background-color: white;
+        border-radius: 100%; 
+        
+        
+    }
+</style>
+</head>
+<body>
+<script>
+
+    document.body.style.height = "1000dvh"; 
+    let clicks = 0;
+
+    function onClick(event) {
+        clicks = clicks + 1;
+        console.log("Mouse was clicked", clicks, "times!");
+
+        const circ = document.createElement('div');
+        circ.classList.add('circle');
+
+        circ.style.left = (event.clientX - 25) + 'px';
+        circ.style.top = (event.clientY - 25) + 'px';
+
+      
+        document.body.appendChild(circ);
+    }
+
+    document.body.onclick = onClick;
+</script>
+</body>
+</html>

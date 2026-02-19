@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./blackflash.css"></link>
+    <title>IT IS AN ACCLANATION OF THE SOUL!</title>
+  </head>
+  <body>
+    <h1>!BLACK FLASH!</h1>
+    <ol id="todo"></ol>
+    <input type="text" id="description">
+    <button id="add">boogie woogie</button>
+
+    <script>
+      const todo        = document.getElementById("todo")
+      const add         = document.getElementById("add" )
+      const description = document.getElementById("description")
+
+      function newItem(desc) {
+        const li   = document.createElement("li"   )
+        const cb   = document.createElement("input")
+        const text = document.createElement("span" )
+        const del  = document.createElement("button")
+
+        function deleteItem() {
+          todo.removeChild(li)
+        }
+
+        cb.onclick = deleteItem
+        
+        cb.type = "checkbox"
+        del.innerText = "🗑️"
+        text.innerText = desc
+        li.appendChild(cb  )
+        li.appendChild(text)
+        li.appendChild(del )
+        return li
+      }
+
+      function addItem() {
+        const text = description.value
+        description.value = ""
+        todo.appendChild(newItem(text))
+      }
+
+      add.onclick = addItem
+
+    </script>
+  </body>
+</html>

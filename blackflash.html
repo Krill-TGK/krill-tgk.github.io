@@ -25,7 +25,14 @@
           todo.removeChild(li)
         }
 
-        cb.onclick = deleteItem
+        function jesusItem () {
+          text.classList.toggle("cross");          
+        }
+
+        cb.onchange = jesusItem
+        del. onclick = deleteItem
+
+        
         
         cb.type = "checkbox"
         del.innerText = "🗑️"
